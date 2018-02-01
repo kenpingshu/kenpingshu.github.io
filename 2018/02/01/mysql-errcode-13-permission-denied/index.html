@@ -5,17 +5,17 @@
   
   <title>mysql-Can&#39;t create/write to file (Errcode: 13 - Permission denied) | 臉都歪了</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天在執行 Mysql1SELECT * FROM `a` INTO OUTFILE &amp;apos;/var/www/html/a.csv&amp;apos;; 出現以下錯誤1Can&amp;apos;t create/write to file &amp;apos;/var/www/html/a.csv&amp;apos; (Errcode: 13 - Permission denied) 把資料夾權限全部改成777都沒用後來發">
+  <meta name="description" content="今天在執行 Mysql1SELECT * FROM `a` INTO OUTFILE &apos;/var/www/html/a.csv&apos;; 出現以下錯誤1Can&amp;apos;t create/write to file &amp;apos;/var/www/html/a.csv&amp;apos; (Errcode: 13 - Permission denied) 把資料夾權限全部改成777都沒用後來發現需要改動以下檔案1">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql-Can&#39;t create&#x2F;write to file (Errcode: 13 - Permission denied)">
 <meta property="og:url" content="https://kenpingshu.github.io/2018/02/01/mysql-errcode-13-permission-denied/index.html">
 <meta property="og:site_name" content="臉都歪了">
-<meta property="og:description" content="今天在執行 Mysql1SELECT * FROM `a` INTO OUTFILE &amp;apos;/var/www/html/a.csv&amp;apos;; 出現以下錯誤1Can&amp;apos;t create/write to file &amp;apos;/var/www/html/a.csv&amp;apos; (Errcode: 13 - Permission denied) 把資料夾權限全部改成777都沒用後來發">
-<meta property="og:updated_time" content="2018-02-01T09:02:49.925Z">
+<meta property="og:description" content="今天在執行 Mysql1SELECT * FROM `a` INTO OUTFILE &apos;/var/www/html/a.csv&apos;; 出現以下錯誤1Can&amp;apos;t create/write to file &amp;apos;/var/www/html/a.csv&amp;apos; (Errcode: 13 - Permission denied) 把資料夾權限全部改成777都沒用後來發現需要改動以下檔案1">
+<meta property="og:updated_time" content="2018-02-01T09:57:24.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql-Can&#39;t create&#x2F;write to file (Errcode: 13 - Permission denied)">
-<meta name="twitter:description" content="今天在執行 Mysql1SELECT * FROM `a` INTO OUTFILE &amp;apos;/var/www/html/a.csv&amp;apos;; 出現以下錯誤1Can&amp;apos;t create/write to file &amp;apos;/var/www/html/a.csv&amp;apos; (Errcode: 13 - Permission denied) 把資料夾權限全部改成777都沒用後來發">
+<meta name="twitter:description" content="今天在執行 Mysql1SELECT * FROM `a` INTO OUTFILE &apos;/var/www/html/a.csv&apos;; 出現以下錯誤1Can&amp;apos;t create/write to file &amp;apos;/var/www/html/a.csv&amp;apos; (Errcode: 13 - Permission denied) 把資料夾權限全部改成777都沒用後來發現需要改動以下檔案1">
   
     <link rel="alternate" href="/atom.xml" title="臉都歪了" type="application/atom+xml">
   
@@ -53,9 +53,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kenpingshu.github.io"></form>
@@ -90,16 +90,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天在執行 Mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SELECT * FROM `a` INTO OUTFILE &apos;/var/www/html/a.csv&apos;;</div></pre></td></tr></table></figure></p>
+        <p>今天在執行 Mysql<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="string">`a`</span> <span class="keyword">INTO</span> <span class="keyword">OUTFILE</span> <span class="string">'/var/www/html/a.csv'</span>;</div></pre></td></tr></table></figure></p>
 <p>出現以下錯誤<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Can&apos;t create/write to file &apos;/var/www/html/a.csv&apos; (Errcode: 13 - Permission denied)</div></pre></td></tr></table></figure></p>
-<p>把資料夾權限全部改成777都沒用<br>後來發現需要改動以下檔案<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/apparmor.d/usr.sbin.mysqld</div></pre></td></tr></table></figure></p>
+<p>把資料夾權限全部改成777都沒用<br>後來發現需要改動以下檔案<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vim /etc/apparmor.d/usr.sbin.mysqld</div></pre></td></tr></table></figure></p>
 <p>在文件裡面多加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/var/www/html/** rwk,</div></pre></td></tr></table></figure></p>
 <p>這樣才能讓mysql有權限寫檔進去</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://kenpingshu.github.io/2018/02/01/mysql-errcode-13-permission-denied/" data-id="cjd4adkd3000165ml0zfngi39" class="article-share-link">Share</a>
+      <a data-url="https://kenpingshu.github.io/2018/02/01/mysql-errcode-13-permission-denied/" data-id="cjd4bvwts000147mltjjy8qyz" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li></ul>
@@ -112,7 +112,7 @@
   
   
     <a href="/2017/08/16/mysql-delete-duplicate-row/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">mysql 刪除重複的資料</div>
     </a>
   
@@ -127,7 +127,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li></ul>
     </div>
@@ -137,7 +137,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a></li></ul>
     </div>
@@ -147,7 +147,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a>
     </div>
@@ -166,7 +166,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -191,7 +191,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Ken Hsu<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
